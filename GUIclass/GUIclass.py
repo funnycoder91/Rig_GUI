@@ -1,8 +1,26 @@
 from tkinter import *
 
-class RigGui(Frame):
+class FrameMethods:
+    def __int__(self):
+        pass
+
+    def TrqControlClicker(self):
+        self.SpdControl.config(bg='white')
+        self.TrqControl.config(bg='red')
+    def SpdControlClicker(self):
+        self.SpdControl.config(bg='red')
+        self.TrqControl.config(bg='white')
+    def reqEnableClicker(self):
+        self.reqEnable.config(bg='green')
+        self.reqDisable.config(bg='white')
+    def reqDisableClicker(self):
+        self.reqDisable.config(bg='green')
+        self.reqEnable.config(bg='white')
+
+class BasicFrame(Frame,FrameMethods):
     def __init__(self,master):
         Frame.__init__(self)
+        #FrameMethods.__init__(self)
 
         self.CtrlModeText = Label(self,text='Enter control mode:')
         self.CtrlModeText.grid(row=0,column=0)
@@ -22,21 +40,7 @@ class RigGui(Frame):
         self.reqDisable = Button(self,text='Disable MCU',command=self.reqDisableClicker)
         self.reqDisable.grid(row=1,column=2,padx=20)
 
-    def TrqControlClicker(self):
-        self.TrqControl.config(bg='red')
-        self.SpdControl.config(bg='white')
 
-    def SpdControlClicker(self):
-        self.SpdControl.config(bg='red')
-        self.TrqControl.config(bg='white')
-
-    def reqEnableClicker(self):
-        self.reqEnable.config(bg='green')
-        self.reqDisable.config(bg='white')
-
-    def reqDisableClicker(self):
-        self.reqDisable.config(bg='green')
-        self.reqEnable.config(bg='white')
 
 
 

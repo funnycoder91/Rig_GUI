@@ -3,7 +3,6 @@ from tkinter import *
 class FrameMethods:
     def __int__(self):
         pass
-
     def TrqControlClicker(self):
         self.SpdControl.config(bg='white')
         self.TrqControl.config(bg='red')
@@ -20,7 +19,7 @@ class FrameMethods:
 class BasicFrame(Frame,FrameMethods):
     def __init__(self,master):
         Frame.__init__(self)
-        #FrameMethods.__init__(self)
+        FrameMethods.__init__(self)
 
         self.CtrlModeText = Label(self,text='Enter control mode:')
         self.CtrlModeText.grid(row=0,column=0)

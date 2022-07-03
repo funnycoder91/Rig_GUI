@@ -1,22 +1,44 @@
 from tkinter import *
 
-class RigGui:
+class RigGui(Frame):
     def __init__(self,master):
-        self.myFrame = Frame(master)
-        self.myFrame.pack()
+        Frame.__init__(self)
 
-        self.reqEnableText = Label(self.myFrame,text='Enable/Disable MCU',fg='Black',bg='White')
-        self.reqEnableText.grid(row=0,column=0)
+        self.CtrlModeText = Label(self,text='Enter control mode:')
+        self.CtrlModeText.grid(row=0,column=0)
 
-        self.reqEnable = Button(self.myFrame,text='Enable MCU',command=self.clicker)
-        self.reqEnable.grid(row=0,column=1,padx=80)
+        self.TrqControl = Button(self,text='Torque control',command=self.TrqControlClicker)
+        self.TrqControl.grid(row=0,column = 1,padx=20)
 
-        self.reqDisable = Button(self.myFrame,text='Disable MCU',command=self.clicker)
-        self.reqDisable.grid(row=0,column=2,padx=10)
+        self.SpdControl = Button(self,text='Speed control',command=self.SpdControlClicker)
+        self.SpdControl.grid(row=0,column=2,padx=20)
+
+        self.reqEnableText = Label(self,text='Enable/Disable MCU:')
+        self.reqEnableText.grid(row=1,column=0,pady=20)
+
+        self.reqEnable = Button(self,text='Enable MCU',command=self.reqEnableClicker)
+        self.reqEnable.grid(row=1,column=1,padx=20)
+
+        self.reqDisable = Button(self,text='Disable MCU',command=self.reqDisableClicker)
+        self.reqDisable.grid(row=1,column=2,padx=20)
+
+    def TrqControlClicker(self):
+        self.TrqControl.config(bg='red')
+        self.SpdControl.config(bg='white')
+
+    def SpdControlClicker(self):
+        self.SpdControl.config(bg='red')
+        self.TrqControl.config(bg='white')
+
+    def reqEnableClicker(self):
+        self.reqEnable.config(bg='green')
+        self.reqDisable.config(bg='white')
+
+    def reqDisableClicker(self):
+        self.reqDisable.config(bg='green')
+        self.reqEnable.config(bg='white')
 
 
-    def clicker(self):
-        print("Button clicked!")
 
 
 
